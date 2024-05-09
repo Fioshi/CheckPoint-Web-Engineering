@@ -15,15 +15,10 @@ import { CommonModule } from '@angular/common';
 export class EditarComponent {
 
 
-  fornecedor: Fornecedor = {
-    id: 0,
-    nome: "",
-    endereco: "",
-    telefone: ""
-  }
+  fornecedor?: Fornecedor
   constructor(private service: ListarService, private router: Router, private route: ActivatedRoute, private formBuilder: FormBuilder) {
     this.formGroup = this.formBuilder.group({
-      id: [''],
+      id: ['',Validators.required],
       nome: ['', Validators.required],
       endereco: ['', Validators.required],
       telefone: ['', Validators.required]
@@ -34,7 +29,7 @@ export class EditarComponent {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.service.buscarPorId(parseInt(id!)).subscribe((fornecedor) => {
+    this.service.buscarPorId((id!)).subscribe((fornecedor) => {
       this.formGroup.patchValue({
         id: fornecedor.id,
         nome: fornecedor.nome,
@@ -47,7 +42,7 @@ export class EditarComponent {
   atualizar() {
     if (this.formGroup.valid) {
       this.service.editar(this.formGroup.value).subscribe(() => {
-        this.router.navigate(['/listar']);
+        this.router.navigate(['listar']);
       });
     }
   }

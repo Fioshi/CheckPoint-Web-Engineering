@@ -19,7 +19,7 @@ export class CadastrarComponent {
 
   formGroup: FormGroup = new FormGroup({})
   fornecedor: Fornecedor = {
-    id: 0,
+    id: "",
     nome: "",
     endereco: "",
     telefone: "",
@@ -46,8 +46,9 @@ export class CadastrarComponent {
 
   }
 
-  gerarId(): number {
-    return Math.floor(Math.random() * (1000001 - 1 + 1)) + 1;
+  gerarId(): string {
+    let number = Math.floor(Math.random() * (1000001 - 1 + 1)) + 1;
+    return number.toString()
   }
 }
 

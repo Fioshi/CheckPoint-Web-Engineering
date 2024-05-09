@@ -13,23 +13,20 @@ import { Fornecedor } from '../../interfaces/Fornecedor';
 })
 export class ExclusaoComponent {
 
-  fornecedor: Fornecedor = {
-    id: 0,
-    nome: "",
-    endereco: "",
-    telefone: ""
-  }
+  fornecedor?: Fornecedor;
   constructor(private service: ListarService, private route: ActivatedRoute, private router: Router) { }
 
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
+    console.log(id)
     this.service
-      .buscarPorId(parseInt(id!))
+      .buscarPorId((id!))
       .subscribe((fornecedor) => (this.fornecedor = fornecedor));
   }
 
   excluir() {
+    console.log(this.fornecedor?.id)
     this.service.excluir((this.fornecedor?.id!)).subscribe(() => {
       this.router.navigate(['listar'])
     })

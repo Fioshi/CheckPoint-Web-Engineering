@@ -11,7 +11,7 @@ export class ListarService {
 
 
 
-  private url = "http://localhost:3000/Fornecedores"
+  private url = "http://localhost:3004/fornecedores"
   constructor(private http: HttpClient) { }
 
   fornecedores: Fornecedor[] = []
@@ -30,14 +30,14 @@ export class ListarService {
     return this.http.post<Fornecedor>(this.url, fornecedor, this.httpHeader);
   }
 
-  buscarPorId(id: number): Observable<Fornecedor> {
+  buscarPorId(id: string): Observable<Fornecedor> {
     const url = `${this.url}/${id}`;
-    return this.http.get<Fornecedor>(url);
+    return this.http.get(url) as Observable<Fornecedor>;
   }
 
-  excluir(id: number): Observable<Fornecedor> {
+  excluir(id: string) {
     const url = `${this.url}/${id}`;
-    return this.http.delete<Fornecedor>(url);
+    return this.http.delete(url);
   }
 
   editar(fornecedor: Fornecedor): Observable<Fornecedor> {
