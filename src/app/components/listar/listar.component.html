@@ -1,0 +1,11 @@
+<section class="main">
+    <div *ngFor="let fornecedor of fornecedores" class="card">
+      <p class="dados"><strong class="bold">Id:</strong> {{fornecedor.id}}</p>
+      <p class="dados"><strong class="bold">Nome:</strong> {{fornecedor.nome}}</p>
+      <p class="dados"><strong class="bold">Endereço:</strong> {{fornecedor.endereco}}</p>
+      <p class="dados"><strong class="bold">Telefone:</strong> {{fornecedor.telefone}}</p>
+      <a class="icon_edit" href="editar/{{fornecedor.id}}"><img src="../../../assets/botao-editar.png" alt="Editar"></a>
+      <a class="icon_delete" href="excluir/{{fornecedor.id}}"><img src="../../../assets/excluir.png" alt="Excluir"></a>
+    </div>
+  </section>
+  

@@ -1,0 +1,23 @@
+.navBar{
+    width: 100vw;
+    height: 15vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    background-color: #EBE3D5;
+}
+
+.options {
+    width: 30vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.title {
+    margin: 1rem 0 1rem 0;
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+

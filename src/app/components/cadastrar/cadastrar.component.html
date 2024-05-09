@@ -1,0 +1,14 @@
+<section>
+    <form [formGroup]="formGroup" (ngSubmit)="inserir()">
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="nome" formControlName="nome">
+    
+        <label for="endereco">Endereço</label>
+        <input type="text" name="endereco" id="endereco" formControlName="endereco">
+    
+        <label for="telefone">Telefone</label>
+        <input type="text" name="telefone" id="telefone" formControlName="telefone">
+
+        <button type="submit">Confirmar</button>
+    </form>
+</section>
